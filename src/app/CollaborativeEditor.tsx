@@ -3,14 +3,14 @@
 import { useState, useEffect, useCallback } from 'react';
 
 const CollaborativeEditor = () => {
-  const [ws, setWs] = useState(null);
-  const [content, setContent] = useState('');
-  const [lastEdit, setLastEdit] = useState(null);
-  const [connected, setConnected] = useState(false);
-  const [error, setError] = useState(null);
+  const [ws, setWs] = useState<WebSocket | null>(null);
+  const [content, setContent] = useState<string>('');
+  const [lastEdit, setLastEdit] = useState<string | null>(null);
+  const [connected, setConnected] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
 
   const connect = useCallback(() => {
-    const socket = new WebSocket('wss://notepadplus-api.onrender.com');
+    const socket = new WebSocket('wss://notepadplus-api.onrender.com'); // notepadplus-api.onrender.com
 
     socket.onopen = () => {
       setConnected(true);
@@ -61,13 +61,13 @@ const CollaborativeEditor = () => {
     connect();
   }, [connect]);
 
-  const sendMessage = useCallback((type, payload) => {
+  const sendMessage = useCallback((type: string, payload: Record<string, unknown>) => {
     if (ws?.readyState === WebSocket.OPEN) {
       ws.send(JSON.stringify({ type, ...payload }));
     }
   }, [ws]);
 
-  const handleContentChange = (e) => {
+  const handleContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newContent = e.target.value;
     setContent(newContent);
     
@@ -108,5 +108,6 @@ const CollaborativeEditor = () => {
     </div>
   );
 };
+
 
 export default CollaborativeEditor;
