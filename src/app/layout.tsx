@@ -21,8 +21,21 @@ export const metadata: Metadata = {
   title: "Welcome to my portfolio!",
   description: "",
   openGraph: {
-    images: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Graves_0.jpg"
-  }
+    title: 'Welcome to my portfolio!',
+    description: 'Hire me !',
+    url: 'alexandreribeiro.xyz',
+    siteName: 'Alexandre Ribeiro | Hire me',
+    images: [
+      {
+        url: 'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Graves_0.jpg',
+        width: 1215,
+        height: 717,
+      }
+      
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
