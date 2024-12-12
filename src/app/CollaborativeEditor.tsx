@@ -1,5 +1,6 @@
 "use client"
 
+
 import { useState, useEffect, useCallback } from 'react';
 
 const CollaborativeEditor = () => {
@@ -26,6 +27,7 @@ const CollaborativeEditor = () => {
 
     socket.onerror = (error) => {
       setError('Failed to connect to server');
+      console.log(error);
       setConnected(false);
     };
 

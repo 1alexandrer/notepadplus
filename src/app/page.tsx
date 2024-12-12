@@ -1,5 +1,6 @@
-import Image from "next/image";
+
 import CollaborativeEditor from "./CollaborativeEditor";
+
 
 
 export default function Home() {
