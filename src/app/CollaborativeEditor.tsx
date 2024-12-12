@@ -10,7 +10,7 @@ const CollaborativeEditor = () => {
   const [error, setError] = useState(null);
 
   const connect = useCallback(() => {
-    const socket = new WebSocket('ws://localhost:3001');
+    const socket = new WebSocket('wss://notepadplus-api.onrender.com');
 
     socket.onopen = () => {
       setConnected(true);
